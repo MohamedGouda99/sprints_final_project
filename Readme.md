@@ -48,19 +48,25 @@ aws eks update-kubeconfig --name hr-stag-eksdemo1 --region us-east-1
 
 # Step 4: Build and Push Docker Images to ECR
 
-To deploy your application, you need to build Docker images and push them to your Amazon Elastic Container Registry (ECR) repository. Follow these steps:
+# Deploying Your Application with Docker Images and Amazon ECR
+
+To deploy your application, you will need to build Docker images and push them to your Amazon Elastic Container Registry (ECR) repository. Follow the steps below to complete the process.
 
 ## Prerequisites
 
-1. Ensure you have the AWS CLI installed and configured with the necessary credentials.
+Before you begin, ensure you have the following prerequisites in place:
+
+1. Install and configure the AWS CLI with the necessary credentials.
 
 2. Make sure Docker is installed on your local machine.
 
 ## Building and Pushing Docker Images
 
+Follow these steps to build your Docker images and push them to your ECR repository:
+
 1. **Retrieve ECR Repository URL:**
-   
-   Go to your AWS Management Console and locate your ECR repository. Make a note of its URL.
+
+   Go to your AWS Management Console and locate your ECR repository. Take note of its URL.
 
 2. **Log in to ECR:**
 
@@ -68,24 +74,3 @@ To deploy your application, you need to build Docker images and push them to you
 
    ```shell
    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <YOUR_ECR_REPO_URL>
-
-3. ** Build your Dockerfile**
-
-    Build your Docker image. Navigate to the directory containing your FlaskApp/Dockerfile and db/Dockerfile then run.
-
-    ```shell
-   docker build -t myapp:latest .
-
-4. **Tag your Docker image with the repository URL**
-
-    ``shell
-   docker tag myapp:latest <YOUR_ECR_REPO_URL>:latest
-
-5. **Push the Docker image to the ECR repository**
-
-    ``shell
-   docker push <YOUR_ECR_REPO_URL>:latest
-
-
-
-
