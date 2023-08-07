@@ -93,3 +93,4 @@ To deploy your application, you need to build Docker images and push them to you
 ### After Getting Ingress URL
 
 Once you have obtained the Ingress URL for your application, browse using it.
+![Terraform Commands](screenshots/app.png)
