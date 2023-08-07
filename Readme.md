@@ -8,8 +8,8 @@ Before getting started, it's recommended to run through the manual steps to ensu
 
 ### Step 1: Manual Setup
 
-1. <Insert any prerequisites or initial setup steps if required.>
-2. ...
+1. Install terraform [Click here to visit Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+2. Install awscli [Click here to visit AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
 ### Step 2: Run Terraform Scripts
 
