@@ -35,7 +35,9 @@ To deploy the infrastructure, follow these steps:
 ![Terraform Commands](screenshots/subnet.PNG)
 
 ### Step 3: Update kube config to ensure that everything is fine with EKS cluster
-To do this run the following:
 
-    ```shell
-    aws eks update-kubeconfig --name hr-stag-eksdemo1 --region us-east-1 
+To update the kubeconfig for your Amazon EKS cluster, run the following command:
+
+```shell
+aws eks update-kubeconfig --name hr-stag-eksdemo1 --region us-east-1
+
