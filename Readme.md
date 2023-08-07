@@ -44,7 +44,6 @@ To update the kubeconfig for your Amazon EKS cluster, execute the following comm
 
 ```shell
 aws eks update-kubeconfig --name hr-stag-eksdemo1 --region us-east-1
-
 ### Step 4: Build and Push Docker Images to ECR
 
 To deploy your application, you need to build Docker images and push them to your Amazon Elastic Container Registry (ECR) repository. Follow these steps:
@@ -62,4 +61,3 @@ To deploy your application, you need to build Docker images and push them to you
 
    ```shell
    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <YOUR_ECR_REPO_URL>
-
