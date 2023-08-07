@@ -48,29 +48,43 @@ aws eks update-kubeconfig --name hr-stag-eksdemo1 --region us-east-1
 
 # Step 4: Build and Push Docker Images to ECR
 
-# Deploying Your Application with Docker Images and Amazon ECR
-
-To deploy your application, you will need to build Docker images and push them to your Amazon Elastic Container Registry (ECR) repository. Follow the steps below to complete the process.
+To deploy your application, you need to build Docker images and push them to your Amazon Elastic Container Registry (ECR) repository. Follow these steps:
 
 ## Prerequisites
 
-Before you begin, ensure you have the following prerequisites in place:
-
-1. Install and configure the AWS CLI with the necessary credentials.
-
-2. Make sure Docker is installed on your local machine.
+- Ensure you have the AWS CLI installed and configured with the necessary credentials.
+- Make sure Docker is installed on your local machine.
 
 ## Building and Pushing Docker Images
 
-Follow these steps to build your Docker images and push them to your ECR repository:
+1. Retrieve ECR Repository URL: Go to your AWS Management Console and locate your ECR repository. Make a note of its URL.
 
-1. **Retrieve ECR Repository URL:**
-
-   Go to your AWS Management Console and locate your ECR repository. Take note of its URL.
-
-2. **Log in to ECR:**
-
-   Use the AWS CLI to authenticate Docker to your ECR repository. Run the following command, replacing `<YOUR_ECR_REPO_URL>` with your actual ECR repository URL:
+2. Log in to ECR: Use the AWS CLI to authenticate Docker to your ECR repository. Run the following command, replacing `<YOUR_ECR_REPO_URL>` with your actual ECR repository URL:
 
    ```shell
    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <YOUR_ECR_REPO_URL>
+
+3. ** Build your Dockerfile**
+
+    Build your Docker image. Navigate to the directory containing your FlaskApp/Dockerfile and db/Dockerfile then run.
+
+    ```shell
+   docker build -t myapp:latest .
+
+4. **Tag your Docker image with the repository URL**
+
+    ``shell
+   docker tag myapp:latest <YOUR_ECR_REPO_URL>:latest
+
+5. **Push the Docker image to the ECR repository**
+
+    ``shell
+   docker push <YOUR_ECR_REPO_URL>:latest
+
+
+## Step 5: change directory to k8s-manifests then run the following kubectl commands but don't forget to edit deployment.yml to add docker image.
+
+       kubectl apply -f pv.yml -f pvc.yml  -f db-service.yml -f ConfigMap-db.yml -f statfullset.yml
+       kubectl apply -f ConfigMap-app.yml -f app-service.yml -f deployment.yml
+       kubectl apply -f k8s/ingress.yml
+       kubectl get ing
