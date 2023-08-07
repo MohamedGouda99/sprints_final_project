@@ -36,5 +36,6 @@ To deploy the infrastructure, follow these steps:
 
 ### Step 3: Update kube config to ensure that everything is fine with EKS cluster
 To do this run the following:
+
     ```shell
     aws eks update-kubeconfig --name hr-stag-eksdemo1 --region us-east-1 
