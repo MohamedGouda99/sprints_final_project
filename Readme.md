@@ -90,6 +90,8 @@ To deploy your application, you need to build Docker images and push them to you
        kubectl get ing
 
 
-# After getting ingress URL.
-you must see the following screenshot:
+# After Getting Ingress URL
+
+Once you have obtained the Ingress URL for your application, you should see the following screenshot:
+
 ![Terraform Commands](screenshots/app.png)
