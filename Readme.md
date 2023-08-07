@@ -42,7 +42,7 @@ This section guides you through updating your kubeconfig for an Amazon EKS clust
 
 To update the kubeconfig for your Amazon EKS cluster, execute the following command:
 
-    ```shell
+    ``shell
     aws eks update-kubeconfig --name hr-stag-eksdemo1 --region us-east-1
 
 ### Step 4: Build and Push Docker Images to ECR
