@@ -34,7 +34,7 @@ To deploy the infrastructure, follow these steps:
 ![Terraform Commands](screenshots/security_groups.PNG)
 ![Terraform Commands](screenshots/subnet.PNG)
 
-# Amazon EKS Cluster Setup and Docker Image Deployment
+### Amazon EKS Cluster Setup and Docker Image Deployment
 
 This guide outlines the steps to update your kubeconfig for an Amazon EKS cluster and push Docker images to an ECR repository.
 
@@ -90,8 +90,6 @@ To deploy your application, you need to build Docker images and push them to you
        kubectl get ing
 
 
-# After Getting Ingress URL
+### After Getting Ingress URL
 
-Once you have obtained the Ingress URL for your application, you should see the following screenshot:
-
-![Terraform Commands](screenshots/app.png)
+Once you have obtained the Ingress URL for your application, browse using it.
