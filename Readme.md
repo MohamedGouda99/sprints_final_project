@@ -61,24 +61,24 @@ To deploy your application, you need to build Docker images and push them to you
 
 2. Log in to ECR: Use the AWS CLI to authenticate Docker to your ECR repository. Run the following command, replacing `<YOUR_ECR_REPO_URL>` with your actual ECR repository URL:
 
-   ```shell
+   
    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <YOUR_ECR_REPO_URL>
 
-3. ** Build your Dockerfile**
+3.  Build your Dockerfile
 
     Build your Docker image. Navigate to the directory containing your FlaskApp/Dockerfile and db/Dockerfile then run.
 
-    ```shell
+    
    docker build -t myapp:latest .
 
-4. **Tag your Docker image with the repository URL**
+4. Tag your Docker image with the repository URL
 
-    ``shell
+    
    docker tag myapp:latest <YOUR_ECR_REPO_URL>:latest
 
-5. **Push the Docker image to the ECR repository**
+5. Push the Docker image to the ECR repository
 
-    ``shell
+   
    docker push <YOUR_ECR_REPO_URL>:latest
 
 
