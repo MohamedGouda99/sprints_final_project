@@ -88,3 +88,8 @@ To deploy your application, you need to build Docker images and push them to you
        kubectl apply -f ConfigMap-app.yml -f app-service.yml -f deployment.yml
        kubectl apply -f k8s/ingress.yml
        kubectl get ing
+
+
+# After getting ingress URL.
+you must see the following screenshot:
+![Terraform Commands](screenshots/app.png)
