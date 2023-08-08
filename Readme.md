@@ -72,7 +72,7 @@ docker build -t myapp:latest .
 docker tag myapp:latest <YOUR_ECR_REPO_URL>:latest
 docker push <YOUR_ECR_REPO_URL>:latest
 
-## Step 5: Deploying Kubernetes Manifests and Ingress
+## Deploying Kubernetes Manifests and Ingress
 
 Change to the `k8s-manifests` directory and run the following `kubectl` commands. Be sure to edit `deployment.yml` to include the correct Docker image:
 
