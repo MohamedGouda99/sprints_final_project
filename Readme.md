@@ -42,7 +42,7 @@ This section guides you through updating your kubeconfig for an Amazon EKS clust
 
 To update the kubeconfig for your Amazon EKS cluster, execute the following command:
 
-    ``shell
+    ```shell
     aws eks update-kubeconfig --name hr-stag-eksdemo1 --region us-east-1
 
 ### Step 4: Build and Push Docker Images to ECR
@@ -62,4 +62,13 @@ To deploy your application, you need to build Docker images and push them to you
 
    ```shell
    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <YOUR_ECR_REPO_URL>
+
+## Building Docker Images
+
+Navigate to the directories containing your FlaskApp/Dockerfile and db/Dockerfile, then run the following commands:
+
+```shell
+docker build -t myapp:latest .
+docker tag myapp:latest <YOUR_ECR_REPO_URL>:latest
+docker push <YOUR_ECR_REPO_URL>:latest
 
