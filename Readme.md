@@ -80,5 +80,8 @@ Change to the `k8s-manifests` directory and run the following `kubectl` commands
     kubectl apply -f ConfigMap-app.yml -f app-service.yml -f deployment.yml
     kubectl apply -f k8s/ingress.yml
     kubectl get ing
+```
+After getting ingress loadbalancer URL then browse it, you should see the following:
+![Terraform Commands](screenshots/subnet.PNG)
 
 
