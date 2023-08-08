@@ -92,7 +92,7 @@ After getting ingress loadbalancer URL then browse it, you should see the follow
 # Let's discuss about Github actions pipeline.
  before running the pipeline you need to configure variables as shown in the following screenshot:
 
-![Terraform Commands](screenshots/vars.PNG)
+![Terraform Commands](screenshots/vars.png)
 
 Then run it so easily, so the GitHub Actions pipeline will do all of previous steps in automated way.
 
