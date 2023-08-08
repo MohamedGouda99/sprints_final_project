@@ -87,7 +87,7 @@ Change to the `k8s-manifests` directory and run the following `kubectl` commands
 ```
 After getting ingress loadbalancer URL then browse it, you should see the following:
 
-![Terraform Commands](screenshots/subnet.PNG)
+![Terraform Commands](screenshots/app.png)
 ##
 # Let's discuss about Github actions pipeline.
  before running the pipeline you need to configure variables as shown in the following screenshot:
