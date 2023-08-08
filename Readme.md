@@ -80,8 +80,21 @@ Change to the `k8s-manifests` directory and run the following `kubectl` commands
     kubectl apply -f ConfigMap-app.yml -f app-service.yml -f deployment.yml
     kubectl apply -f k8s/ingress.yml
     kubectl get ing
+    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+    helm repo update
+    helm install ingress-nginx ingress-nginx/ingress-nginx
+
 ```
 After getting ingress loadbalancer URL then browse it, you should see the following:
+
 ![Terraform Commands](screenshots/subnet.PNG)
+##
+# Let's discuss about Github actions pipeline.
+ before running the pipeline you need to configure variables as shown in the following screenshot:
+
+![Terraform Commands](screenshots/vars.PNG)
+
+Then run it so easily
+
 
 
