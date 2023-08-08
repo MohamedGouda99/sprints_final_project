@@ -63,7 +63,7 @@ To deploy your application, you need to build Docker images and push them to you
    ```shell
    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <YOUR_ECR_REPO_URL>
 
-## Building Docker Images
+## Building, tagging and Pushing Docker Images
 
 Navigate to the directories containing your FlaskApp/Dockerfile and db/Dockerfile, then run the following commands:
 
@@ -71,4 +71,15 @@ Navigate to the directories containing your FlaskApp/Dockerfile and db/Dockerfil
 docker build -t myapp:latest .
 docker tag myapp:latest <YOUR_ECR_REPO_URL>:latest
 docker push <YOUR_ECR_REPO_URL>:latest
+
+## Step 5: Deploying Kubernetes Manifests and Ingress
+
+Change to the `k8s-manifests` directory and run the following `kubectl` commands. Be sure to edit `deployment.yml` to include the correct Docker image:
+
+```shell
+kubectl apply -f pv.yml -f pvc.yml -f db-service.yml -f ConfigMap-db.yml -f statfullset.yml
+kubectl apply -f ConfigMap-app.yml -f app-service.yml -f deployment.yml
+kubectl apply -f k8s/ingress.yml
+kubectl get ing
+
 
